@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-1">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
             @*<div class="container">*@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="far fa-calendar-alt"></i> Calendar</a>
                 @if (User.Identity.IsAuthenticated)
@@ -18,23 +18,8 @@
                     <vc:menu></vc:menu>
                 }
 
-                @*<div class="align-middle">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="text-white">Welcome, @User.Identity.Name</div>
-                        <div><a asp-controller="Account" asp-action="Logout" class="text-white">Log Out</a></div>
-                    }
-
-                </div>*@
-                <ul class="navbar-nav ">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" role="button" id="logoutMenu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i> @User.Identity.Name</a>
-                        <div class="dropdown-menu" aria-labelledby="logoutMenu">
-                            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
-                           
-                        </div>
-                    </li>
-                </ul>
+               
+               
             @*</div>*@
         </nav>
     </header>
@@ -60,7 +45,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" >
+    <footer class="border-top footer text-muted fixed-bottom" >
         <div class="container align-bottom">
             &copy; 2020 - Calendar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -69,7 +54,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
+    @*<script>
         (
             function () {
                 function setFooter() {
@@ -86,7 +71,7 @@
         )();
         
   
-    </script>
+    </script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

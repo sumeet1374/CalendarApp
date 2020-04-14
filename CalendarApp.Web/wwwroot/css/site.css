@@ -1,4 +1,11 @@
-﻿.login-margin
+﻿
+body
+{
+    margin-bottom:60px;
+
+}
+
+.login-margin
 {
     margin:2rem 1rem;
     border: 1px solid;
