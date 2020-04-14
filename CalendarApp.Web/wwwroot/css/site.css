@@ -1,0 +1,25 @@
+﻿.login-margin
+{
+    margin:2rem 1rem;
+    border: 1px solid;
+    border-color:#117A65 ;
+    width: 100%;
+}
+
+.login-box {
+
+   width:100%;
+   min-height: 300px;
+   border:1px solid;
+   border-color: #117A65;
+ 
+}
+
+.login-box-content{
+    padding:1rem;
+}
+
+.form-label{
+    font-size: 0.75rem;
+    font-weight: bold;
+}

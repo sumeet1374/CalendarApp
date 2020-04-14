@@ -1,0 +1,33 @@
+﻿@model CalMonthViewModel
+    <div class="table-responsive">
+        <div class="text-white bg-primary p-2">@Model.Month</div>
+        <table class="table table-bordered table-sm " >
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">Su</th>
+                    <th scope="col">Mo</th>
+                    <th scope="col">Tu</th>
+                    <th scope="col">We</th>
+                    <th scope="col">Th</th>
+                    <th scope="col">Fr</th>
+                    <th scope="col">Sa</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                @foreach (var dayItem in Model.Days)
+                {
+                    <tr>
+                        @foreach(var cell in dayItem.Cells)
+                        {
+                            <td class="@cell.ClassName">@cell.Day</td>
+                        }
+                    </tr>
+
+                }
+
+             
+            </tbody>
+        </table>
+    </div>

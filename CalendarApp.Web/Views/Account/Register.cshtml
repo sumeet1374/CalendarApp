@@ -1,0 +1,82 @@
+﻿@model AppUserRegistrationViewModel
+@{
+
+    ViewData["Title"] = "Register User";
+
+    var roleList = ViewData["RoleList"] as List<CalendarApp.Model.AppRole>;
+
+    var selectedItemList = new SelectList(roleList, "Id", "Name");
+}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col mt-4">
+                        <div class="login-box rounded">
+                            <div class="text-white bg-primary text-center " style="text-align: center;">Register User</div>
+                            <form class="login-box-content" method="post" asp-action="Register" asp-controller="Account">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="UserName" class="form-label"><span class="text-danger">* </span>User Name</label>
+                                        <input type="text" class="form-control form-control-sm" asp-for="UserName">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="UserName"></span>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="FirstName" class="form-label"><span class="text-danger">* </span>First Name</label>
+                                        <input type="text" class="form-control form-control-sm" asp-for="FirstName">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="FirstName"></span>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="LastName" class="form-label"><span class="text-danger">* </span>Last Name</label>
+                                        <input type="text" class="form-control form-control-sm" asp-for="LastName">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="LastName"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Password" class="form-label"><span class="text-danger">* </span>Password</label>
+                                        <input type="password" class="form-control form-control-sm" asp-for="Password">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="Password"></span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="ConfirmPassword" class="form-label"><span class="text-danger">* </span>Confirm Password</label>
+                                        <input type="password" class="form-control form-control-sm" asp-for="ConfirmPassword">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="ConfirmPassword"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Email" class="form-label ">Email</label>
+                                        <input type="text" class="form-control form-control-sm" asp-for="Email">
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="Email"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="RoleId" class="form-label"><span class="text-danger">* </span>Role</label>
+                                        <select asp-items="@selectedItemList" asp-for="RoleId" class="form-control form-control-sm">
+                                            <option value="" selected disabled>--Select--</option>
+
+                                        </select>
+                                        <span class="text-danger text-wrap font-weight-bold" asp-validation-for="RoleId"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+

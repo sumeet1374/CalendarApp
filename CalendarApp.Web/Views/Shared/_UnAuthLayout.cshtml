@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Calendar</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+            
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="far fa-calendar-alt"></i> Calendar</a>
+         
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3" id="mainContent">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container align-bottom">
+            &copy; 2020 - Calendar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/6c375013f8.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        (
+            function () {
+                function setFooter() {
+                    let vH = $(window).height();
+                    let height = vH * 0.8;
+                    $("#mainContent").css("min-height", height);
+                }
+                setFooter();
+                $(window).resize(function () {
+                    setFooter();
+                });
+            }
+
+        )();
+
+
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
