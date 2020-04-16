@@ -10,6 +10,9 @@ namespace CalendarApp.Web
 
         public  const string NO_MENU = "NoMenu";
         public const string REQUIRED_VALIDATION = "{0} is required.";
+        public const string ADMIN_ROLE = "Admin";
+        public const string ORGANIZER_ROLE = "Organizer";
+        public const string PARTICIPANT_ROLE = "Participant";
 
     }
 }

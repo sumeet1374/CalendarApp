@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CalendarApp.Model
 {
@@ -27,5 +28,8 @@ namespace CalendarApp.Model
         public bool Active { get; set; }
 
         public string AllowedParticipationLogs { get; set; }
+
+        public bool AllowParticipantsRegistration { get; set; }
+        public virtual List<EventParticipant> Participants { get; set; }
     }
 }

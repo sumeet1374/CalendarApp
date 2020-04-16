@@ -12,6 +12,8 @@ namespace CalendarApp.Db
         List<T> Get(Expression<Func<T, bool>> where);
 
         T GetSingle(Expression<Func<T, bool>> where);
+
+        PagedResult<T> GetWithPaging(Expression<Func<T, bool>> where,int pageNumber,int pageSize);
         List<T> Get(Func<object, List<T>> query);  // Can create custom query first parameter could db DbSet<T>
 
         void Add(T obj);

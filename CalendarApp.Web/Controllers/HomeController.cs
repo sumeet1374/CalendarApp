@@ -28,6 +28,13 @@ namespace CalendarApp.Web.Controllers
 
 
         [Authorize]
+        public IActionResult Calendar()
+        {
+            return View();
+        }
+
+
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();

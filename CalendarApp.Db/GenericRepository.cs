@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CalendarApp.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace CalendarApp.Db
 {
     public class GenericRepository<T> : IRepository<T> where T:class 
     {
-     
+      
         public GenericRepository()
         {
             
@@ -64,6 +65,25 @@ namespace CalendarApp.Db
         public T GetSingle(Expression<Func<T, bool>> where)
         {
             return GetDbSet().Where(where).FirstOrDefault();
+        }
+
+        public PagedResult<T> GetWithPaging(Expression<Func<T, bool>> where, int pageNumber, int pageSize)
+        {
+            var pageResult = new PagedResult<T>();
+            var count = GetDbSet().Where(where).Count();
+            if (count < (pageNumber * pageSize))
+                throw new ValidationException("Records less than page number");
+
+            var numbrOfPages = count / pageSize;
+
+            if (count % pageSize > 0)
+                numbrOfPages += 1;
+            pageResult.NumberOfPages = numbrOfPages;
+             var skip = (pageNumber - 1) * pageSize;
+            var take = pageSize;
+            pageResult.Result = GetDbSet().Where(where).Skip(skip).Take(take).ToList();
+            pageResult.RowCount = count;
+            return pageResult;
         }
 
         public IUnitOfWork Context {  get; set; }

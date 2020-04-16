@@ -18,5 +18,7 @@ namespace CalendarApp.Model
         public virtual AppRole Role { get; set; }
 
         public bool Deleted { get; set; }
+
+        public virtual List<EventParticipant> EventSchedules { get; set; }
     }
 }

@@ -2,6 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="text-center">
-        <vc:calendar month="4" year="2020"></vc:calendar>
+    <div class="container">
+        <div class="row justify-content-center mb-2" >
+            <div class="col-sm-12 text-right" >
+                <a class="btn-sm btn-primary" data-toggle="collapse" href="#eventCalender" aria-expanded="false" aria-controls="eventCalender">View Calendar</a>
+            </div>
+        </div>
+        <div class="row  collapse justify-content-center" id="eventCalender">
+            <div class="col-sm-6">
+                <vc:calendar month="4" year="2020"></vc:calendar>
+            </div>
+
+        </div>
+        
     </div>

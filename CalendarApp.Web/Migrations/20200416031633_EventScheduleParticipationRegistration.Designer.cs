@@ -3,14 +3,16 @@ using System;
 using CalendarApp.Web;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CalendarApp.Web.Migrations
 {
     [DbContext(typeof(CalendarAppDbContext))]
-    partial class CalendarAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200416031633_EventScheduleParticipationRegistration")]
+    partial class EventScheduleParticipationRegistration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

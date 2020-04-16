@@ -22,9 +22,9 @@ namespace CalendarApp.Web
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<AppRole>().HasData(
-                new AppRole() { Id = 1, Name = "Admin", Deleted = false },
-                new AppRole() { Id = 2, Name = "Organizer", Deleted = false },
-                  new AppRole() { Id = 3, Name = "Participant", Deleted = false }
+                new AppRole() { Id = 1, Name = AppConstants.ADMIN_ROLE, Deleted = false },
+                new AppRole() { Id = 2, Name = AppConstants.ORGANIZER_ROLE, Deleted = false },
+                  new AppRole() { Id = 3, Name = AppConstants.PARTICIPANT_ROLE,  Deleted = false }
                 );
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

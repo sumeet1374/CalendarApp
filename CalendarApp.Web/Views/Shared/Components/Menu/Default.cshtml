@@ -1,5 +1,19 @@
 ﻿@model List<MenuItem>
 
+@{ 
+
+    bool IsAuthorized(List<string> roles)
+    {
+        foreach(var role in roles)
+        {
+            if (User.IsInRole(role))
+                return true;
+        }
+
+        return false;
+    }
+}
+
 @if (Model != null && Model.Count > 0)
 {
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -8,13 +22,39 @@
     </button>
     <div class="navbar-collapse collapse d-sm-inline-flex " >
         <!--d-sm-inline-flex flex-sm-row-reverse-->
-        <ul class="navbar-nav" >
+        <ul class="navbar-nav">
             <!-- flex-grow-1-->
             @foreach (var item in Model)
             {
-                <li class="nav-item">
-                    <a class="nav-link text-white" asp-area="" asp-controller="@item.Controller" asp-action="@item.Action">@item.Title</a>
-                </li>
+                if (IsAuthorized(item.Roles))
+                {
+
+                    if (item.SubMenus.Count > 0)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" role="button" id="@item.Id" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@item.Title</a>
+
+                            <div class="dropdown-menu" aria-labelledby="@item.Id">
+                                @foreach (var subItem in item.SubMenus)
+                                {
+                                    if (IsAuthorized(subItem.Roles))
+                                    {
+                                        <a class="dropdown-item" asp-controller="@subItem.Controller" asp-action="@subItem.Action">@subItem.Title</a>
+                                    }
+
+                                }
+
+
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="@item.Controller" asp-action="@item.Action">@item.Title</a>
+                        </li>
+                    }
+                }
 
             }
         </ul>
