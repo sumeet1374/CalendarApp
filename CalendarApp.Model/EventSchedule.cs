@@ -31,5 +31,6 @@ namespace CalendarApp.Model
 
         public bool AllowParticipantsRegistration { get; set; }
         public virtual List<EventParticipant> Participants { get; set; }
+
     }
 }

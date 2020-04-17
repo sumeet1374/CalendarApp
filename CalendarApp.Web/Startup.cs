@@ -6,10 +6,12 @@ using CalendarApp.Db;
 using CalendarApp.Model;
 using CalendarApp.Service;
 using CalendarApp.Web.LocalServices;
+using CalendarApp.Web.Validation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +37,17 @@ namespace CalendarApp.Web
                 options.LoginPath = "/Account/Login";
 
             });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(AppConstants.EVENT_MANAGER_POLICY, options =>
+                {
+                    options.RequireRole(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE);
+
+                });
+            });
+
+            services.AddSingleton(typeof(IValidationAttributeAdapterProvider), typeof(CustomValidationAttributeAdapterProvider));
             services.AddSingleton(typeof(IMenuService), typeof(MenuService));
             services.AddSingleton(typeof(IUnitOfWorkFactory),typeof(UnitOfWorkFactory));
             services.AddTransient(typeof(IRepository<>),typeof(GenericRepository<>));

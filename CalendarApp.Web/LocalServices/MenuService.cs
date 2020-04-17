@@ -16,7 +16,7 @@ namespace CalendarApp.Web.LocalServices
             menuList.Add(home);
             // Organize
             var org = new MenuItem(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE,AppConstants.PARTICIPANT_ROLE) { Title = "Organize", Controller = "", Action = "" ,Id="Org" ,};
-            var events = new MenuItem(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE) { Title = "Events", Controller = "Event", Action = "Index" };
+            var events = new MenuItem(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE) { Title = "Events", Controller = "EventAdmin", Action = "Index" };
             var tasks = new MenuItem(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE) { Title = "Tasks", Controller = "Task", Action = "Index" };
             var reminders = new MenuItem(AppConstants.ADMIN_ROLE, AppConstants.ORGANIZER_ROLE,AppConstants.PARTICIPANT_ROLE) { Title = "Reminders", Controller = "Reminder", Action = "Index" };
             org.SubMenus.Add(events);

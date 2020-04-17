@@ -22,6 +22,7 @@ namespace CalendarApp.Web.Models
 
         public CalDayRow()
         {
+            
             for(int i = 0; i < 7; i++)
             {
                 Cells[i] = new CalDayCell();

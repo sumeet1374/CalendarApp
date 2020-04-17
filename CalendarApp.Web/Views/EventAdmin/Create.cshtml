@@ -1,0 +1,59 @@
+﻿@model AppEventViewModel
+@{
+    ViewData["Title"] = "New Event";
+}
+
+
+    <form class="login-box-content" method="post" asp-action="Register" asp-controller="Account">
+        <div class="form-group">
+            <label asp-for="Name" class="form-label"><span class="text-danger">* </span>Name</label>
+            <input type="text" class="form-control form-control-sm" asp-for="Name">
+            <span class="text-danger text-wrap font-weight-bold" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="form-label">Description</label>
+            <textarea class="form-control form-control-sm" asp-for="Description" rows="5" cols="20"></textarea>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group  col-auto ">
+                <label asp-for="EventDate" class="form-label"><span class="text-danger">* </span>EventDate</label>
+                <input type="date" class="form-control form-control-sm" asp-for="EventDate">
+                <span class="text-danger text-wrap font-weight-bold" asp-validation-for="EventDate"></span>
+            </div>
+            <div class="form-group col-auto">
+                <label asp-for="StartTime" class="form-label">Start Time</label>
+                <input type="time" class="form-control form-control-sm" asp-for="StartTime">
+            </div>
+            <div class="form-group col-auto">
+                <label asp-for="EndTime" class="form-label">End Time</label>
+                <input type="time" class="form-control form-control-sm" asp-for="EndTime">
+            </div>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" asp-for="AllowParticipantsRegistration">
+            <label class="form-check-label form-label" asp-for="AllowParticipantsRegistration">Allow Participant Registration</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" asp-for="AutoStartEndEvent">
+            <label class="form-check-label form-label" asp-for="AutoStartEndEvent">Auto Start Event</label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NoOfParticipantsAllowed" class="form-label"><span class="text-danger">* </span>Maximum Number Of Participants</label>
+            <input type="text" class="form-control form-control-sm" asp-for="NoOfParticipantsAllowed" style="max-width:100px">
+            <span class="text-danger text-wrap font-weight-bold" asp-validation-for="NoOfParticipantsAllowed"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+
+        </div>
+
+
+    </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
