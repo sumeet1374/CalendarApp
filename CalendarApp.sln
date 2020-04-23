@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Db", "CalendarA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Service", "CalendarApp.Service\CalendarApp.Service.csproj", "{4872A8C1-A89F-4017-B257-426E1F131D78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarApp.Util", "CalendarApp.Util\CalendarApp.Util.csproj", "{4DC1AD7A-542D-4532-9A96-2A69B86A7438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Util", "CalendarApp.Util\CalendarApp.Util.csproj", "{4DC1AD7A-542D-4532-9A96-2A69B86A7438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarApp.Util.Test", "CalendarApp.Util.Test\CalendarApp.Util.Test.csproj", "{E65387D5-9552-474B-AE97-16D5FF376D81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarApp.Util.Test", "CalendarApp.Util.Test\CalendarApp.Util.Test.csproj", "{E65387D5-9552-474B-AE97-16D5FF376D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarApp.Service.Test", "CalendarApp.Service.Test\CalendarApp.Service.Test.csproj", "{0CA7C9E9-B753-47C4-9472-E180E71D594D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E65387D5-9552-474B-AE97-16D5FF376D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E65387D5-9552-474B-AE97-16D5FF376D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65387D5-9552-474B-AE97-16D5FF376D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA7C9E9-B753-47C4-9472-E180E71D594D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA7C9E9-B753-47C4-9472-E180E71D594D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA7C9E9-B753-47C4-9472-E180E71D594D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA7C9E9-B753-47C4-9472-E180E71D594D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

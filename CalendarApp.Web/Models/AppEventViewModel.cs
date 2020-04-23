@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 namespace CalendarApp.Web.Models
 {
 
-    public enum AmPM
-    {
-        AM,
-        PM
-
-    }
-
+    
     public class AppEventViewModel
     {
         private const string VAL_EVENT_NAME_IS_REQUIRED = "Please enter the Name.";
+        private const string VAL_EVENT_DATE_RANGE = "Event date cannot be a past date.";
 
         public int Id { get; set; }
 
@@ -32,11 +27,12 @@ namespace CalendarApp.Web.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [DateRange(ErrorMessage = "Date is not in range")]
+        [DateRange(ErrorMessage = VAL_EVENT_DATE_RANGE)]
         public DateTime EventDate { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
+
         public string StartTime { get; set; }
 
         [Required]

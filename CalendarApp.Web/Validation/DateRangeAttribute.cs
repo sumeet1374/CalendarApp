@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CalendarApp.Web.Validation
 {
@@ -23,7 +20,7 @@ namespace CalendarApp.Web.Validation
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-         
+           
             var startDate = StartDate ?? DateTime.Now.Date;
             var endDate = EndDate ?? DateTime.MaxValue.Date;
             var dateToValidate = (DateTime)value;

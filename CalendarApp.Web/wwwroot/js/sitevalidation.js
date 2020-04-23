@@ -1,4 +1,4 @@
-﻿$.validator.addMethod("daterange", function (value, element, params) {
+﻿$.validator.addMethod("daterange", function (value, _element, params) {
 
     let today = new Date();
     let todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0, 0);
